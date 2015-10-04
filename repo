@@ -2,8 +2,8 @@
 
 ## repo default configuration
 ##
-REPO_URL = 'https://gerrit.googlesource.com/git-repo'
-REPO_REV = 'stable'
+REPO_URL = 'git://10.128.181.149/repo.git'
+REPO_REV = 'caf-stable-st'
 
 # Copyright (C) 2008 Google Inc.
 #
@@ -25,6 +25,38 @@ VERSION = (1, 21)
 # increment this if the MAINTAINER_KEYS block is modified
 KEYRING_VERSION = (1, 2)
 MAINTAINER_KEYS = """
+
+     Zongbao.ye.sz <zongbao.ye.sz@tcl.com>
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+     
+mQENBFYP3TIBCAC9hhFEdOpv23txgF69t2q7kjpkfoIJlKkNq7d685SrpaZ/fmRu
+1qpTIhMxWYfbL9TWX5aNlz9VvAAeI1JmPVVHFZy6lYBcL1YFDLuqeKgPMH55VcNt
+vF7qYlYpRAnnvavswrJdZAVuekSlwSayOD6RZDrHxdkKDbetnoGnY7GVma3cetAs
+u0qeqFx7lCL/t6e6NtwI2iS3rcFQYIdyHZRyI5zSLLRY4MOxbtrTqTARLm4TfYay
+Wei4uu16CrF37VSsxGSwzkxGhwxiB9KrORUJrgkXfZeRRbRkX8DSilVYz7MspXhh
+c3beD264XRLP+UyIhYP/Ka0+cXUj5Y6vw7R9ABEBAAG0JXpvbmdiYW8ueWUuc3og
+PHpvbmdiYW8ueWUuc3pAdGNsLmNvbT6JATgEEwECACIFAlYP3TICGwMGCwkIBwMC
+BhUIAgkKCwQWAgMBAh4BAheAAAoJENwaXlN/IoE6LPcIALJNvy1klvBUT2veAxYt
+QJt3UX8nt2clutW8gNBG6Uo088KYNuufGV9aovPpoOqVsry4fizzgsmT1tJSlXAR
+xhbyFBA8W3nnQg75spzDb9QM+pwrobfHyLqmlSkqoITByiWKZcgNUOUs91O08qGO
+Ycnvf/yxeZqOTuIaIXNP7YA2LD28XtEGYv5qr7sNFrDqCgsRZwSxnITny8mKnxph
+08sOagUUyV9TAOeQ8Q54yXNT0L2DoS6j4V3zO3+pyI7JLs4gKCVX1IV2nmg7J7he
+kj02tBjd+8KGQ3QBA7vWyhb8nQsg9pau+arxfs47Xy1JoTfhyJaLkCJNY68LUuq0
+pnC5AQ0EVg/dMgEIAK55PMzmva6a1N+Dhi37AvgcDCjYJkXVW3HzEfEJFLZwQO//
+HFIegc0xIpGwUQFGQfj9jHEEJ9/Ge3Tox+vA45N7LxyoFiM+GrSd0nLpPgnm72E+
+VEI2GNtTOSuRDsxLursXXycs+NEt4Nq10YoP7WGVxVZe2MrJ7oLNMXfmgQTP8EQB
+ehkPWRLdFzKdlaztWpofDGQ4tKxkdnx2Y/xKzMIhJ71qc1hPLBsvOOJB+/QMSwsI
+cHIN6U1wKyDEEn2TYfhx5HvDYt5kXUvXNESguHKUfqsOETHxXczMya348St1WGPa
+KxkEW2OFEIuij/095mBp9PLHfZh3uxkWct0sn50AEQEAAYkBHwQYAQIACQUCVg/d
+MgIbDAAKCRDcGl5TfyKBOnmGB/4/PRvT1cfp/ipm5f1GbWreFt+iPjrpE3SQ5Nc/
+P8LU47X9CuzYsqlDDFe+7trliYbj4dYFPBjnUD73oUSA0+irG7ddq7ZxXx0YFLdr
+RFNkFeycKDqbeZW/+TsEvhBi4e1QLMUGvg20iA+3Aq594/HzmiLElV5F945nbAFZ
+h77Xp7g7LYMiIk/yYZ+qinSToZ1wI+UQkLFdT5u8kwmG4fHETYo+zc1sGeguhGsU
+wV2g7ZfzBTbpQ2n+0/k4Rtj7X1gr9gkyE1AfPAcKmy0gWoj7pejIQ6w3H9ka0L7M
+mq4ZvFZmpj4vIbD2u2R+mVnWFlnJtDGrZVGr0u4f16wle2x/
+=UkRd
+-----END PGP PUBLIC KEY BLOCK-----
 
      Repo Maintainer <repo@android.kernel.org>
 -----BEGIN PGP PUBLIC KEY BLOCK-----

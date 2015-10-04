@@ -79,25 +79,27 @@ class _XmlRemote(object):
 
   def _resolveFetchUrl(self):
     url = self.fetchUrl.rstrip('/')
-    manifestUrl = self.manifestUrl.rstrip('/')
-    # urljoin will gets confused over quite a few things.  The ones we care
-    # about here are:
-    # * no scheme in the base url, like <hostname:port>
-    # * persistent-https://
-    # We handle this by replacing these with obscure protocols
-    # and then replacing them with the original when we are done.
-    # gopher -> <none>
-    # wais -> persistent-https
-    if manifestUrl.find(':') != manifestUrl.find('/') - 1:
-      manifestUrl = 'gopher://' + manifestUrl
-    manifestUrl = re.sub(r'^persistent-https://', 'wais://', manifestUrl)
-    url = urllib.parse.urljoin(manifestUrl, url)
-    url = re.sub(r'^gopher://', '', url)
-    url = re.sub(r'^wais://', 'persistent-https://', url)
+    while url.endswith('/'):
+      url = url[:-1]
+    #manifestUrl = self.manifestUrl.rstrip('/')
+    ## urljoin will gets confused over quite a few things.  The ones we care
+    ## about here are:
+    ## * no scheme in the base url, like <hostname:port>
+    ## * persistent-https://
+    ## We handle this by replacing these with obscure protocols
+    ## and then replacing them with the original when we are done.
+    ## gopher -> <none>
+    ## wais -> persistent-https
+    #if manifestUrl.find(':') != manifestUrl.find('/') - 1:
+    #  manifestUrl = 'gopher://' + manifestUrl
+    #manifestUrl = re.sub(r'^persistent-https://', 'wais://', manifestUrl)
+    #url = urllib.parse.urljoin(manifestUrl, url)
+    #url = re.sub(r'^gopher://', '', url)
+    #url = re.sub(r'^wais://', 'persistent-https://', url)
     return url
 
   def ToRemoteSpec(self, projectName):
-    url = self.resolvedFetchUrl.rstrip('/') + '/' + projectName
+    url = self.resolvedFetchUrl.rstrip('/') + '/%s.git' % projectName
     remoteName = self.name
     if self.remoteAlias:
       remoteName = self.remoteAlias
