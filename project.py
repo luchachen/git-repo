@@ -1386,11 +1386,13 @@ class Project(object):
                 "revision %s in %s not found" % (self.revisionExpr, self.name)
             )
 
-    def GetRevisionId(self, all_refs=None):
+    def GetRevisionId(self, all_refs=None, gitlab_api=False):
         if self.revisionId:
             return self.revisionId
 
         rem = self.GetRemote()
+        if gitlab_api:
+            return self.revisionExpr
         rev = rem.ToLocal(self.revisionExpr)
 
         if all_refs is not None and rev in all_refs:

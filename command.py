@@ -433,7 +433,7 @@ class Command(object):
         result.sort(key=_getpath)
         return result
 
-    def FindProjects(self, args, inverse=False, all_manifests=False):
+    def FindProjects(self, args, inverse=False, all_manifests=False, missing_ok=False):
         """Find projects from command line arguments.
 
         Args:
@@ -446,7 +446,7 @@ class Command(object):
         """
         result = []
         patterns = [re.compile(r"%s" % a, re.IGNORECASE) for a in args]
-        for project in self.GetProjects("", all_manifests=all_manifests):
+        for project in self.GetProjects("", missing_ok=missing_ok, all_manifests=all_manifests):
             paths = [project.name, project.RelPath(local=not all_manifests)]
             for pattern in patterns:
                 match = any(pattern.search(x) for x in paths)

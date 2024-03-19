@@ -2180,7 +2180,7 @@ https://gerrit.googlesource.com/git-repo/+/HEAD/docs/manifest-format.md
             )
         return v
 
-    def projectsDiff(self, manifest):
+    def projectsDiff(self, manifest, gitlab=False):
         """return the projects differences between two manifests.
 
         The diff will be from self to given manifest.
@@ -2203,15 +2203,19 @@ https://gerrit.googlesource.com/git-repo/+/HEAD/docs/manifest-format.md
         for proj in fromKeys:
             if proj not in toKeys:
                 diff["removed"].append(fromProjects[proj])
-            elif not fromProjects[proj].Exists:
+            elif not fromProjects[proj].Exists and not gitlab:
                 diff["missing"].append(toProjects[proj])
                 toKeys.remove(proj)
             else:
                 fromProj = fromProjects[proj]
                 toProj = toProjects[proj]
                 try:
-                    fromRevId = fromProj.GetCommitRevisionId()
-                    toRevId = toProj.GetCommitRevisionId()
+                    if gitlab:
+                        fromRevId = fromProj.GetRevisionId(gitlab_api=True)
+                        toRevId = toProj.GetRevisionId(gitlab_api=True)
+                    else:
+                        fromRevId = fromProj.GetCommitRevisionId()
+                        toRevId = toProj.GetCommitRevisionId()
                 except ManifestInvalidRevisionError:
                     diff["unreachable"].append((fromProj, toProj))
                 else:
